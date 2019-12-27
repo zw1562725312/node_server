@@ -11,4 +11,18 @@ router.post('/checkLogin', function (req, res, next) {
   res.send({ code: "200", isLogin: "ok", token: "abcdefg123456789", username })
 });
 
+
+router.get('/test', function (req, res) {
+  // res.render('users/new', { title: 'New User'});
+  res.send({ code: "200", result: { a: 0, b: 0 } })
+});
+router.get('/test1', function (req, res) {
+  // res.render('users/new', { title: 'New User'});
+  res.send({ code: "200", result: { a: 1, b: 1 } })
+});
+router.get('/test2', function (req, res) {
+  // res.render('users/new', { title: 'New User'});
+  res.send({ code: "200", result: { a: 2, b: 2 } })
+});
+
 module.exports = router;
