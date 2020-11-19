@@ -41,7 +41,7 @@ app.use(function (err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
-});
+}); 
 
 app.listen(9999, () => {
   console.log("服务器已启动:http://192.168.200.152:9999")
