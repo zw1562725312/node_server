@@ -6,6 +6,9 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var dva_umi_Router = require('./routes/dva_umi');
+var socket_Router = require('./routes/socket');
+
 
 var app = express();
 
@@ -21,6 +24,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/dva_umi', dva_umi_Router);
+app.use('/socket', socket_Router);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
