@@ -1,6 +1,10 @@
 var express = require('express');
 var router = express.Router();
 
+const fileStr = null
+const formidable = require("formidable");
+const path = require("path");
+
 /* 登录 */
 router.post('/login', function (req, res, next) {
   let { username, password } = req.body
@@ -9,6 +13,13 @@ router.post('/login', function (req, res, next) {
   console.log(token);
   console.log(username, password)
   res.send({ code: "0", isLogin: "ok", token: "abcdefg123456789", username })
+});
+
+router.post('/upload', function (req, res, next) {
+  const {offset, chunckSize, totalSize} = req.query
+  console.log('offset, chunckSize, totalSize', offset, chunckSize, totalSize);
+  
+  res.send({ code: "0" })
 });
 
 

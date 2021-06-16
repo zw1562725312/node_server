@@ -10,8 +10,16 @@ var dva_umi_Router = require('./routes/dva_umi');
 var socket_Router = require('./routes/socket');
 
 
-var app = express();
-
+var app = express()
+// const cors = require('cors');
+// app.use(cors());
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*')
+  res.header('Access-Control-Allow-Headers', 'Authorization,X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method' )
+  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PATCH, PUT, DELETE')
+  res.header('Allow', 'GET, POST, PATCH, OPTIONS, PUT, DELETE')
+  next();
+});
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -46,6 +54,5 @@ app.use(function (err, req, res, next) {
 app.listen(9999, () => {
   console.log("服务器已启动:http://192.168.200.152:9999")
 })
-
 
 module.exports = app;
